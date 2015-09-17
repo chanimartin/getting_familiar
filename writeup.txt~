@@ -1,0 +1,19 @@
+rosbag
+
+1. Rosbag can fit into the debugging process by allowing us to replay something that our robot did.  We can analyze and look through the process in order to try to figure out what went wrong without having to re-do everything.  This means a lot of debugging can just be done on your laptop with access to the robots.
+
+2. Shortcomings probably include not being able to see what kinds of effects certain changes would have made to your robots paths or decisions.  You will only be able to play with the sensor data that was available at the time.
+
+coordinate systems in rviz
+
+1. The new behaviour in the base_link frame makes sense as it is visualizing coordinates based on the robots location and not based on a fixed point in space.
+
+listener script: sleep time
+
+1. When this code is run, the listener only reports hearing the talker every 10 seconds but the time indicates only 10 milliseconds.  You can assume that any code put in a sensor callback is going to be lagging or not up to date.  When programming a robot, this would be suboptimal in instances where there needs to be realtime reactivity, or when time-based functions such as speed are interacting with sensor data that could be old.
+
+listener script: queue
+
+2. In this case, the listener reports at ten seconds and gives a correct increment of 10 seconds passing.
+
+
